@@ -3,6 +3,9 @@ body {
     color: #212529;
  
 }
+.temperature {
+    font-size: 1.5rem;
+}
 .weather {
     font-family: Cerebri-Sans,Helvetica,Arial,sans-serif;
     background: #fff;
