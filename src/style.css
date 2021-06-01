@@ -1,0 +1,16 @@
+body {
+    background: #5b3bad;
+    color: #212529;
+ 
+}
+.weather {
+    font-family: Cerebri-Sans,Helvetica,Arial,sans-serif;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+    padding: 40px;
+    color: #878787;
+}
+footer {
+    text-align: center;
+}
