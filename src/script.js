@@ -1,14 +1,17 @@
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let days = ["Sunday", "Monday", "Tuesday", "Wed", "Thursday", "Friday", "Saturday"];
-    let day = days[date.getDay()];
+    let weekday = days[date.getDay()];
     let hour = date.getHours();
      let minutes = date.getMinutes();
      if (minutes < 10) {
         minutes = `0${minutes}`;
     }
-
-    return `${day} ${hour}:${minutes}`;
+    let months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    let month = months[date.getMonth()];
+    let day = date.getDay();
+    let year = date.getFullYear();
+    return `${weekday} ${hour}:${minutes} ${month} ${day} ${year}`;
     }
 
 function displayTemp(response) {
