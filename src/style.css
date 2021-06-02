@@ -3,30 +3,28 @@ body {
     color: #212529;
 
 }
+.container {
+    margin: 20px;
+}
 .temperature {
     font-size: 1.5rem;
 }
-.btn {
-    background-color: #f65282;
-}
-
 .humidity, .wind, .forecast-temperature {
     color: #6ee1f8;
 }
 .weather {
-    background: #fff;
+    align-content: center;
+    background: rgb(235, 230, 190);
     border-radius: 16px;
     box-shadow: 0 30px 50px rgb(65 50 100 / 8%);   
     color: #878787;
     display: block;
-    font-family: Cerebri-Sans,Helvetica,Arial,sans-serif;    
-    margin: auto;
-    max-width: 800px;
-    min-width: 600px;
+    font-family: Helvetica,Arial,sans-serif;    
+    margin: 0 auto;
+    width: 500px;
     padding: 40px;   
 }
 footer {
     text-align: center;
-    max-width: 800px;
-    min-width: 600px;
+    font-size: .7rem;
 }
