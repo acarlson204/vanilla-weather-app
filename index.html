@@ -19,7 +19,6 @@
 <body>
   <div class="container">
     <div class="weather">
-
       <div class="row">
         <input type="search" class="col form-control search-input" type="text"
           placeholder="Enter a city..." aria-label=".form-control-sm example">
@@ -29,24 +28,23 @@
 
       <div class="row">
         <div class="col-8 left-col">
-          <h1 class="city" id="city">Winnipeg</h1>
-          <span class="date-time" id="date-time">Tuesday 1200</span>, <span class="description"
-            id="description"></span>
+          <h1 class="city" id="city"></h1>
+          <span class="description" id="description"></span>
           <div class="weather-conditions">
             HUMIDITY:<span class="humidity" id="humidity"> </span>%, WIND: <span
               class="wind" id="wind"> </span>km/h
           </div>
-
         </div>
-
         <div class="col right-col">
           <img src="media/sun.png" alt="icon for sunny" height="60" width="60">
           <span class="temperature" id="temperature">
           </span>
           <span class="unit">℃</span>
         </div>
+        <span class="sunrise-sunset-wrapper"><strong>SUNRISE:</strong><span
+            class="sunrise"> 5:44</span>AM | <strong>SUNSET:</strong><span
+            class="sunset"> 9:33 </span>PM</span></span>
         <hr>
-
         <div class="forecast">
           <div class="row">
             <div class="col">
@@ -93,19 +91,22 @@
           </div>
         </div>
         <hr>
-        <p>
-          This project was coded by Abby Carlson. <br> It is open sourced on
-          GitHub and hosted on Netlify.
-          <a href="https://github.com/acarlson204/vanilla-weather-app">
-            <img alt="github logo and link"
-              src="media/GitHub-Mark/GitHub-Mark/PNG/GitHub-Mark-32px.png">
-            <a href="https://app.netlify.com/teams/acarlson204/overview">
-              <img src="media/netlify-logo.png" alt="netlify logo and link"
-                width=30" height="30">
-            </a>
-        </p>
       </div>
+      <span class="last-updated-wrapper"><strong>LAST UPDATED: </strong><span
+          class="date-time" id="date-time"> </span></span>
     </div>
+    <footer>
+      <p>This project was coded by Abby Carlson. <br> It is open sourced on
+        GitHub and hosted on Netlify. <br>
+        <a href="https://github.com/acarlson204/vanilla-weather-app">
+          <img alt="github logo and link"
+            src="media/GitHub-Mark/GitHub-Mark/PNG/GitHub-Mark-32px.png">
+          <a href="https://app.netlify.com/teams/acarlson204/overview">
+            <img src="media/netlify-logo.png" alt="netlify logo and link"
+              width=30" height="30">
+          </a>
+      </p>
+    </footer>
     <script src="src/script.js"></script>
 </body>
 

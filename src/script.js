@@ -1,16 +1,29 @@
+function formatDate(timestamp) {
+    let date = new Date(timestamp);
+    let days = ["Sunday", "Monday", "Tuesday", "Wed", "Thursday", "Friday", "Saturday"];
+    let day = days[date.getDay()];
+    let hour = date.getHours();
+     let minutes = date.getMinutes();
+     if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+
+    return `${day} ${hour}:${minutes}`;
+    }
+
 function displayTemp(response) {
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
     let cityElement = document.querySelector("#city");
-    cityElement.innerHTML = response.data.name;
     let descriptionElement = document.querySelector("#description");
-    descriptionElement.innerHTML = response.data.weather[0].description; 
     let humidityElement = document.querySelector("#humidity");
-    humidityElement.innerHTML = response.data.main.humidity; 
     let windElement = document.querySelector("#wind");
+    let dateElement = document.querySelector("#date-time");
+    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    cityElement.innerHTML = response.data.name;
+    descriptionElement.innerHTML = response.data.weather[0].description;
+    humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
-
-
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let city = "Montreal";
