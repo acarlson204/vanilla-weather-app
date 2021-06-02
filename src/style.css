@@ -1,23 +1,30 @@
 body {
-    background: #5b3bad;
-    color: #212529;
+    background: #5b3bad;;
 
 }
 .container {
     margin: 20px;
 }
+.description {
+    text-transform: capitalize;
+  }
 .temperature {
     font-size: 1.5rem;
 }
 .humidity, .wind, .forecast-temperature {
-    color: #6ee1f8;
+    color: #5b3bad;
 }
+.unit{
+    position: relative;
+    font-size: 16px;
+    top: -8px;
+  }
 .weather {
     align-content: center;
     background: rgb(235, 230, 190);
     border-radius: 16px;
     box-shadow: 0 30px 50px rgb(65 50 100 / 8%);   
-    color: #878787;
+    color: rgb(17, 17, 17);
     display: block;
     font-family: Helvetica,Arial,sans-serif;    
     margin: 0 auto;
