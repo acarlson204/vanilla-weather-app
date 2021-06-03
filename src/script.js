@@ -3,8 +3,8 @@ function formatDate(timestamp) {
     let days = ["Sunday", "Monday", "Tuesday", "Wed", "Thursday", "Friday", "Saturday"];
     let weekday = days[date.getDay()];
     let hour = date.getHours();
-     let minutes = date.getMinutes();
-     if (minutes < 10) {
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
         minutes = `0${minutes}`;
     }
     let months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
@@ -12,7 +12,7 @@ function formatDate(timestamp) {
     let day = date.getDay();
     let year = date.getFullYear();
     return `${weekday} ${hour}:${minutes} ${month} ${day} ${year}`;
-    }
+}
 
 function displayTemp(response) {
     let temperatureElement = document.querySelector("#temperature");
@@ -22,7 +22,12 @@ function displayTemp(response) {
     let windElement = document.querySelector("#wind");
     let dateElement = document.querySelector("#date-time");
     let iconElement = document.querySelector("#icon");
-
+    let sunriseElement = document.querySelector("#sunrise");
+    let sunsetElement = document.querySelector("#sunset");
+    let sunriseEpoch = (response.data.sys.sunrise);
+    let sunsetEpoch = (response.data.sys.sunset);    
+    let sunrise = new Date(sunriseEpoch * 1000);
+    let sunset = new Date(sunsetEpoch * 1000);    
 
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
@@ -30,8 +35,13 @@ function displayTemp(response) {
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
-    iconElement.setAttribute("src",  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    sunriseElement.innerHTML = `${sunrise}`;
+    sunsetElement.innerHTML = `${sunset}`;
+}
+function epochCoversion(response) {
+
 }
 
 let city = "Winnipeg";
