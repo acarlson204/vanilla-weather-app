@@ -18,6 +18,12 @@ body {
     font-weight: 400;
     line-height: 2;
 }
+.icon {
+    position: relative;
+    top: -28px;
+    left: -18px;
+
+}
 .last-updated-wrapper {
 text-align: right;
 }
