@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,11 +18,17 @@
 <body>
   <div class="container">
     <div class="weather">
-      <div class="row">
-        <input type="search" class="col form-control search-input" type="text"
-          placeholder="Enter a city..." aria-label=".form-control-sm example">
-        <button type="submit" class="col-2 btn btn-outline-info">Search</button>
+
+      
+        <form id="search-form">
+<div class="row">
+          <input type="search" class="col form-control search-input" id="search-input" type="text"
+            placeholder="Enter a city..." aria-label=".form-control-sm example">
+
+          <button type="submit" class="col-2 btn btn-primary">Search</button>
       </div>
+        </form>
+
       <hr>
       <div class="row">
         <div class="col-8 left-col">
@@ -38,10 +45,17 @@
           <span class="temperature" id="temperature">
           </span>
           <span class="unit">℃</span>
+          <span class="current-temp-max-min-wrapper">
+            <div class="top-max-min-wrapper">
+              <span class="temp-max" id="temp-max">00</span>℃ /
+              <span class="temp-min" id="temp-min">00</span>℃
+            </div>
+          </span>
         </div>
         <span class="sunrise-sunset-wrapper"><strong>SUNRISE:</strong><span
-            class="sunrise" id="sunrise"> 000</span> AM | <strong>SUNSET:</strong><span
-            class="sunset" id="sunset"> 000</span> PM</span></span>
+            class="sunrise" id="sunrise"> 000</span> AM |
+          <strong>SUNSET:</strong><span class="sunset" id="sunset"> 000</span>
+          PM</span></span>
         <hr>
         <div class="forecast">
           <div class="row">
@@ -51,7 +65,10 @@
               <img class="image" src="media/sun.png" alt="icon for sunny"
                 height="20" width="20">
               <div class="forecast-temperature">
-                <span class="high">24</span>℃
+                <div class="max-min-wrapper">
+                  <span class="temp-max" id="temp-max">00</span>℃ /
+                  <span class="temp-min" id="temp-min">00</span>℃
+                </div>
               </div>
             </div>
             <div class="col">
@@ -59,7 +76,10 @@
               <img class="image" src="media/sun.png" alt="icon for sunny"
                 height="20" width="20">
               <div class="forecast-temperature">
-                <span class="high">24</span>℃
+                <div class="max-min-wrapper">
+                  <span class="temp-max" id="temp-max">00</span>℃ /
+                  <span class="temp-min" id="temp-min">00</span>℃
+                </div>
               </div>
             </div>
             <div class="col">
@@ -67,7 +87,10 @@
               <img class="image" src="media/sun.png" alt="icon for sunny"
                 height="20" width="20">
               <div class="forecast-temperature">
-                <span class="high">24</span>℃
+                <div class="max-min-wrapper">
+                  <span class="temp-max" id="temp-max">00</span>℃ /
+                  <span class="temp-min" id="temp-min">00</span>℃
+                </div>
               </div>
             </div>
             <div class="col">
@@ -75,7 +98,10 @@
               <img class="image" src="media/sun.png" alt="icon for sunny"
                 height="20" width="20">
               <div class="forecast-temperature">
-                <span class="high">24</span>℃
+                <div class="max-min-wrapper">
+                  <span class="temp-max" id="temp-max">00</span>℃ /
+                  <span class="temp-min" id="temp-min">00</span>℃
+                </div>
               </div>
             </div>
             <div class="col">
@@ -83,7 +109,10 @@
               <img class="image" src="media/sun.png" alt="icon for sunny"
                 height="20" width="20">
               <div class="forecast-temperature">
-                <span class="high">24</span>℃
+                <div class="max-min-wrapper">
+                  <span class="temp-max" id="temp-max">00</span>℃ /
+                  <span class="temp-min" id="temp-min">00</span>℃
+                </div>
               </div>
             </div>
           </div>
@@ -107,4 +136,5 @@
     </footer>
     <script src="src/script.js"></script>
 </body>
+
 </html>

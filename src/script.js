@@ -22,6 +22,8 @@ function displayTemp(response) {
     let windElement = document.querySelector("#wind");
     let dateElement = document.querySelector("#date-time");
     let iconElement = document.querySelector("#icon");
+    let tempMaxElement = document.querySelector("#temp-max");
+    let tempMinElement = document.querySelector("#temp-min");
     let sunriseElement = document.querySelector("#sunrise");
     let sunsetElement = document.querySelector("#sunset");
     let sunriseEpoch = (response.data.sys.sunrise);
@@ -37,15 +39,26 @@ function displayTemp(response) {
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    tempMaxElement.innerHTML = Math.round(response.data.main.temp_max);
+    tempMinElement.innerHTML = Math.round(response.data.main.temp_min);
     sunriseElement.innerHTML = `${sunrise}`;
     sunsetElement.innerHTML = `${sunset}`;
 }
-function epochCoversion(response) {
 
+function handleSubmit(event) {
+    event.preventDefault();
+    let searchInputElement = document.querySelector("#search-input");
+    search(searchInputElement.value);
 }
-
-let city = "Winnipeg";
+function displaySunriseSunset(response) {
+}
+function search(city) {
 let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 axios.get(apiUrl).then(displayTemp);
+}
+
+search("New York");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
