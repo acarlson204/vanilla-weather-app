@@ -15,7 +15,7 @@ function formatDate(timestamp) {
 }
 
 function formatTime(timestamp) {
-  let time = new Date(timestamp);
+  let time = new Date(timestamp * 1000);
   let hour = time.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -27,32 +27,41 @@ function formatTime(timestamp) {
   return `${hour}:${minutes}`;
 }
 
+function formateDay(forecastTimestamp) {
+  let weekdate = new Date(forecastTimestamp * 1000);
+  let day = weekdate.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "6b223ba52442c4a0c231ef743ba9a32c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
   console.log(apiUrl);
 }
 
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = [`Thu`, `Fri`, `Sat`, `Sun`, `Mon`];
-  days.forEach(function (day) {
-
+  forecast.forEach(function (forecastDay, index) {
+if (index < 5) {
     forecastHTML = forecastHTML + `<div class="col">
-    <div class="upcoming-weekday">${day}</div>
-    <img  src="http://openweathermap.org/img/wn/50d@2x.png" alt="" class="image" height="25" width="25">
+    <div class="upcoming-weekday">${formateDay(forecastDay.dt)}</div>
+    <img  src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" class="image">
     <div class="forecast-temperature">
+
       <div class="max-min-wrapper">
-        <span class="temp-max" id="temp-max">00</span>℃ /
-        <span class="temp-min" id="temp-min">00</span>℃
+        <span class="temp-max" id="temp-max">${Math.round(forecastDay.temp.max)}</span>℃ /
+        <span class="temp-min" id="temp-min">${Math.round(forecastDay.temp.min)}</span>℃
       </div>
     </div>
     </div>`
+}
   });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -69,10 +78,8 @@ function displayTemp(response) {
   let tempMinElement = document.querySelector("#temp-min");
   let sunriseElement = document.querySelector("#sunrise");
   let sunsetElement = document.querySelector("#sunset");
-  let sunriseEpoch = (response.data.sys.sunrise);
-  let sunsetEpoch = (response.data.sys.sunset);
-  let sunrise = formatTime(sunriseEpoch * 1000);
-  let sunset = formatTime(sunsetEpoch * 1000);
+  let sunrise = formatTime(response.data.sys.sunrise * 1000);
+  let sunset = formatTime(response.data.sys.sunset * 1000);
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -83,8 +90,8 @@ function displayTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
   tempMaxElement.innerHTML = Math.round(response.data.main.temp_max);
   tempMinElement.innerHTML = Math.round(response.data.main.temp_min);
-  sunriseElement.innerHTML = `${sunrise}`;
-  sunsetElement.innerHTML = `${sunset}`;
+  sunriseElement.innerHTML = ` ${sunrise}`;
+  sunsetElement.innerHTML = ` ${sunset}`;
   getForecast(response.data.coord);
 }
 
