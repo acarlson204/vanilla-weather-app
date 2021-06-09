@@ -27,10 +27,9 @@ function displayTemp(response) {
     let sunriseElement = document.querySelector("#sunrise");
     let sunsetElement = document.querySelector("#sunset");
     let sunriseEpoch = (response.data.sys.sunrise);
-    let sunsetEpoch = (response.data.sys.sunset);    
-    let sunrise = new Date(sunriseEpoch * 1000);
-    let sunset = new Date(sunsetEpoch * 1000);    
-
+    let sunsetEpoch = (response.data.sys.sunset);
+    let sunrise = formatTime(sunriseEpoch * 1000);
+let sunset = formatTime(sunsetEpoch * 1000);
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
@@ -50,14 +49,39 @@ function handleSubmit(event) {
     let searchInputElement = document.querySelector("#search-input");
     search(searchInputElement.value);
 }
-function displaySunriseSunset(response) {
-}
+
 function search(city) {
-let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayTemp);
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayTemp);
 }
 
+function formatTime(timestamp) {
+    let time = new Date(timestamp);
+    let hour = date.getHours();
+    if (hour < 10) {
+      hour = `0${hour}`;
+    }  
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    return `${hour}:${minutes}`;
+  }
+
+  function formatTime(timestamp) {
+    let time = new Date(timestamp);
+    let hour = time.getHours();
+    if (hour < 10) {
+      hour = `0${hour}`;
+    }  
+    let minutes = time.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    return `${hour}:${minutes}`;
+  }
+  
 search("New York");
 
 let form = document.querySelector("#search-form");

@@ -11,12 +11,9 @@ footer {
 .container {
     margin: 20px;
 }
-.current-temp-max-min-wrapper {
-}
 .description {
     text-transform: uppercase;
   }
-
 .description, .sunrise, .sunset, .humidity, .wind, .forecast-temperature, .date-time {
     color: #5b3bad;
 }
