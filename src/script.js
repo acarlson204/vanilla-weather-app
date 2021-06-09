@@ -14,6 +14,31 @@ function formatDate(timestamp) {
     return `${weekday} ${hour}:${minutes} ${month} ${day} ${year}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML =   `<div class="row">`;
+
+let days = [`Thu`, `Fri`, `Sat`, `Sun`, `Mon`];
+days.forEach(function (day) {
+
+  forecastHTML = forecastHTML + `<div class="col">
+    <div class="upcoming-weekday">${day}</div>
+    <img class="image" src="media/sun.png" alt="icon for sunny" height="20" width="20">
+    <div class="forecast-temperature">
+      <div class="max-min-wrapper">
+        <span class="temp-max" id="temp-max">00</span>℃ /
+        <span class="temp-min" id="temp-min">00</span>℃
+      </div>
+    </div>
+    </div>`
+  });
+forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 function displayTemp(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
