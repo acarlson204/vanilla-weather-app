@@ -11,7 +11,7 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
     crossorigin="anonymous">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/styles/style.css">
   <title>Vanilla Weather </title>
 </head>
 
@@ -31,7 +31,7 @@
       </form>
 <hr>
       <div class="row">
-        <div class="col-8 left-col">
+        <div class="col-7 left-col">
           <h1 class="city" id="city"></h1>
           <span class="description" id="description"></span>
           <div class="weather-conditions">
@@ -40,11 +40,17 @@
             </span> km/h
           </div>
         </div>
+
         <div class="col right-col">
           <img class="icon" id="icon" src="" alt="icon" >
           <span class="temperature" id="temperature">
           </span>
-          <span class="unit">℃</span>
+          <span class="units" id=units>
+            <span class="celsius-link active" id="celsius-link">℃</span> | 
+          <a href="" id="fahrenheit-link">℉</a>
+          </span>
+
+
           <span class="current-temp-max-min-wrapper">
             <div class="top-max-min-wrapper">
               <span class="temp-max" id="temp-max">00</span>℃ /
@@ -52,10 +58,12 @@
             </div>
           </span>
         </div>
+
+
         <span class="sunrise-sunset-wrapper"><strong>SUNRISE:</strong><span
-            class="sunrise" id="sunrise"> 000</span> AM |
-          <strong>SUNSET:</strong><span class="sunset" id="sunset"> 000</span>
-          PM</span></span>
+          class="sunrise" id="sunrise"> 000</span> AM |
+        <strong>SUNSET:</strong><span class="sunset" id="sunset"> 000</span>
+        PM</span></span>
         <hr>
         <div class="forecast" id="forecast">
         </div>

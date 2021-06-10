@@ -1,40 +1,47 @@
+a {
+    color: rgb(17, 17, 17);
+    text-decoration: none;
+}
 body {
-    background: #5b3bad;;
-    line-height: 2.5;
+    background: #5b3bad;
+    line-height: 2;
 }
 footer {
     color: #fff;
     font-size: .7rem;
-    text-align: center;
     padding: 20px;
+    text-align: center;    
 }
 .container {
     margin: 20px;
 }
 .description {
+    font-style: italic;    
+    line-height: 3 !important;    
     text-transform: uppercase;
   }
 .description, .sunrise, .sunset, .humidity, .wind, .forecast-temperature, .date-time {
     color: #5b3bad;
 }
 .forecast {
-    text-align: center;
     font-size: 18px;
+     text-align: center;   
 }
 .forecast-temperature {
     font-size: 14px;
 }
 .icon {
+    left: -18px;    
     position: relative;
     top: -28px;
-    left: -18px;
 }
 .last-updated-wrapper {
-text-align: right;
+    text-align: right;
 }
 .top-max-min-wrapper {
-position: relative;
-left: 50px;
+    bottom:20px;
+    left: 88px;
+    position: relative;
 }
 .sunrise-sunset-wrapper, .last-updated-wrapper {
     font-weight: 400;
@@ -47,11 +54,19 @@ left: 50px;
 .temp-max {
     font-weight: 600;
 }
-.unit{
-    position: relative;
+.units{
     font-size: 16px;
-    top: -18px;
+    position: relative;
+    top: -20px;
   }
+  .units .active {
+    color: rgb(17, 17, 17);
+    font-weight: 600;
+  }
+.units :hover {
+    color: aqua;
+    cursor:pointer;
+}
 .weather {
     align-content: center;
     background: rgb(235, 230, 190);
@@ -61,6 +76,6 @@ left: 50px;
     display: block;
     font-family: Helvetica,Arial,sans-serif;    
     margin: 0 auto;
-    width: 700px;
-    padding: 40px;   
+    width: 685px;
+    padding: 35px;   
 }
