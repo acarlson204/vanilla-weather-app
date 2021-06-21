@@ -3,7 +3,7 @@ a {
     text-decoration: none;
 }
 body {
-    background: #5b3bad;
+    background: rgb(149, 137, 158);
     line-height: 2;
 }
 footer {
@@ -13,7 +13,8 @@ footer {
     text-align: center;    
 }
 .container {
-    margin: 20px;
+;
+    margin: 10px auto;
 }
 .description {
     font-style: italic;    
@@ -69,7 +70,7 @@ footer {
 }
 .weather {
     align-content: center;
-    background: rgb(235, 230, 190);
+    background: rgb(236, 235, 221);
     border-radius: 16px;
     box-shadow: 0 30px 50px rgb(65 50 100 / 8%);   
     color: rgb(17, 17, 17);
@@ -77,5 +78,5 @@ footer {
     font-family: Helvetica,Arial,sans-serif;    
     margin: 0 auto;
     width: 685px;
-    padding: 35px;   
+    padding: 35px;    
 }
